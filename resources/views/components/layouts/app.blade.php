@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="{{ asset('css/login-register.css') }}">
         @vite('resources/css/app.css')
 
-        <title>{{ $title ?? 'Page Title' }}</title>
+        <title>{{  $title ?? ''  }} | Passwizard</title>
     </head>
     <body>
         {{ $slot }}

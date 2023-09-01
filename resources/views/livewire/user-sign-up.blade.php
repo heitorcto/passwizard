@@ -9,7 +9,7 @@
                 <h1 class="text-xl font-bold text-center pb-10">Estamos quase lá...</h1>
             @endif
 
-            <div class="shadow-2xl rounded-md p-12 flex flex-col gap-4 text-sm">
+            <div class="shadow-lg rounded-md p-12 flex flex-col gap-4 text-sm">
                 @if (!$mailSended)
                     <form wire:submit="signUp" class="w-80">
                         <div class="form-control w-full">
@@ -52,9 +52,9 @@
                             <label class="label">
                                 <span class="label-text">Confirme a senha</span>
                             </label>
-                            <input type="password" placeholder="****" class="input input-bordered @error('password_confirmation') input-error @else input-primary @enderror w-full" id="password_confirmation" wire:model.live="password_confirmation" />
+                            <input type="password" placeholder="****" class="input input-bordered @error('passwordConfirmation') input-error @else input-primary @enderror w-full" id="password_confirmation" wire:model.live="passwordConfirmation" />
                             <label class="label">
-                                @error('password_confirmation')
+                                @error('passwordConfirmation')
                                     <span class="label-text-alt text-red-600">{{ $message }}</span>
                                 @enderror
                             </label>
@@ -68,7 +68,7 @@
                         </div>
 
                         <div class="text-center my-3">
-                            <a class="link" href="{{ route('signin') }}">Já tem uma conta?</a>
+                            <a class="link" href="{{ route('user.signin') }}">Já tem uma conta?</a>
                         </div>
                     </form>
                 @else

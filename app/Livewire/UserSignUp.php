@@ -4,8 +4,10 @@ namespace App\Livewire;
 
 use App\Mail\ConfirmAccount;
 use App\Models\User;
+use App\Rules\Passwizard;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rules\Password;
 use Livewire\Attributes\Rule;
 use Livewire\Component;
 use Livewire\Attributes\Title;
@@ -19,13 +21,24 @@ class UserSignUp extends Component
     #[Rule('required|min:5|email:rfc,dns|unique:users,email')]
     public $email;
 
-    #[Rule('required|min:3')]
+    #[Rule(['required', new Passwizard])]
     public $password;
 
     #[Rule('required|min:3|same:password')]
-    public $password_confirmation;
+    public $passwordConfirmation;
 
-    public $mailSended = false;
+    public $mailSended;
+
+    /**
+     * Método reservado do livewire.
+     * Responsável por inicializar estados das propriedades.
+     *
+     * @return void
+     */
+    public function mount()
+    {
+        $this->mailSended = false;
+    }
 
     /**
      * Método reservado do livewire.
@@ -47,7 +60,7 @@ class UserSignUp extends Component
      */
     public function render()
     {
-        return view('livewire.user-sign-up', ['mailSended' => $this->mailSended]);
+        return view('livewire.user-sign-up');
     }
 
     /**
@@ -59,7 +72,6 @@ class UserSignUp extends Component
     {
         $validated = $this->validate();
         $validated['url_hash'] = md5(uniqid(time()));
-
         $user = User::create($validated);
 
         Mail::to($this->email)->send(new ConfirmAccount($user->name, $user->url_hash));

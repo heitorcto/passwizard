@@ -13,10 +13,10 @@ class UserSignIn extends Component
     #[Rule('required|min:5|email:rfc,dns')]
     public $email;
 
-    #[Rule('required|min:3')]
+    #[Rule('required|min:8')]
     public $password;
 
-    public $signInError = '';
+    public $signInError;
 
     /**
      * Método reservado do livewire.
@@ -33,9 +33,7 @@ class UserSignIn extends Component
 
     public function render()
     {
-        return view('livewire.user-sign-in', [
-            'signInError' => $this->signInError
-        ]);
+        return view('livewire.user-sign-in');
     }
 
     public function signIn()

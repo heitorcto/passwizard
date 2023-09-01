@@ -7,7 +7,7 @@
 
         <div class="shadow-2xl rounded-md p-12 flex flex-col gap-4 text-sm">
             <form wire:submit="signIn" class="w-80">
-                @if ($signInError !== '')
+                @if ($signInError)
                     <div class="form-control w-full mb-3">
                         <div class="alert alert-error">
                             <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
@@ -50,7 +50,7 @@
                 </div>
 
                 <div class="text-center my-3">
-                    <a class="link" href="{{ route('signup') }}">Não tem uma conta?</a>
+                    <a class="link" href="{{ route('user.signup') }}">Não tem uma conta?</a>
                 </div>
             </form>
         </div>

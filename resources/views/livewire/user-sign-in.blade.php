@@ -18,29 +18,9 @@
                     </div>
                 @endif
 
-                <div class="form-control w-full">
-                    <label class="label">
-                        <span class="label-text">E-mail</span>
-                    </label>
-                    <input type="email" placeholder="john@wizzard.com" class="input input-bordered @error('email') input-error @else input-primary @enderror w-full" id="email" wire:model.live="email" placeholder="mehedi@jaman.com" />
-                    <label class="label">
-                        @error('email')
-                            <span class="label-text-alt text-red-600">{{ $message }}</span>
-                        @enderror
-                    </label>
-                </div>
+                <x-input label="E-mail" type="email" wire="email" holder="john@wizzard.com" />
 
-                <div class="form-control w-full">
-                    <label class="label">
-                        <span class="label-text">Senha</span>
-                    </label>
-                    <input type="password" placeholder="****" class="input input-bordered @error('password') input-error @else input-primary @enderror w-full" id="password" wire:model.live="password" />
-                    <label class="label">
-                        @error('password')
-                            <span class="label-text-alt text-red-600">{{ $message }}</span>
-                        @enderror
-                    </label>
-                </div>
+                <x-input label="Senha" type="password" wire="password" holder="****" />
 
                 <div class="my-4 flex justify-center">
                     <button class="btn btn-primary w-full @if ($errors->any()) opacity-50 @endif" wire:loading.class="opacity-50" @if ($errors->any()) disabled @endif wire:loading.attr="disabled">

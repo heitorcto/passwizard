@@ -5,7 +5,7 @@
 
         <h1 class="text-xl font-bold text-center pb-10">Entre no Passwizard!</h1>
 
-        <div class="shadow-2xl rounded-md p-12 flex flex-col gap-4 text-sm">
+        <div class="shadow-lg rounded-md p-12 flex flex-col gap-4 text-sm">
             <form wire:submit="signIn" class="w-80">
                 @if ($signInError)
                     <div class="form-control w-full mb-3">

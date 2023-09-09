@@ -10,5 +10,8 @@
                 </label>
             </div>
         </div>
+        <div class="h-12 flex justify-center">
+            <span class="loading loading-infinity loading-lg" wire:loading></span>
+        </div>
     </div>
 </div>

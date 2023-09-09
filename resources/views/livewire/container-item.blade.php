@@ -7,7 +7,8 @@
             <span>{{ $container->name }}</span>
             <div class="flex items-center gap-3">
                 <div class="rating rating-md">
-                    <input type="radio" name="rating-5" class="mask mask-star-2 @if ($container->favorited) bg-orange-400 @else bg-neutral @endif" wire:click="favorite" />
+                    <input type="radio" name="rating-5" class="mask mask-star-2 @if ($container->favorited) bg-orange-400 @else bg-neutral @endif" wire:click="favorite" wire:loading.remove wire:target="favorite" />
+                    <span class="loading loading-infinity loading-xs" wire:loading wire:target="favorite"></span>
                 </div>
                 <button class="btn btn-sm btn-primary" wire:click="$dispatch('open-modal'), $dispatch('access-container', { id: {{ $container->id }} })">Acessar</button>
             </div>

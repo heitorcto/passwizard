@@ -7,6 +7,10 @@ use App\Livewire\UserSignOut;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\UserSignup;
 
+Route::get('/', function() {
+    return view('home');
+});
+
 Route::name('user.')->group(function () {
     Route::get('/signup', UserSignup::class)->name('signup');
     Route::get('/signin', UserSignIn::class)->name('signin');

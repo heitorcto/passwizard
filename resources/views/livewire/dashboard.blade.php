@@ -5,7 +5,7 @@
         <div class="grid grid-cols-8 gap-5">
             <livewire:container-search />
 
-            <livewire:container-list />
+            <livewire:container-list lazy />
 
             <div class="col-start-7 col-span-8">
                 <div class="text-center">
@@ -15,5 +15,5 @@
         </div>
     </div>
 
-    <livewire:modal />
+    <livewire:form-modal />
 </div>

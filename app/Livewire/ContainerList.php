@@ -10,18 +10,31 @@ class ContainerList extends Component
 {
     public $container, $favorited;
 
+    #[On('create')]
+    public function create($data)
+    {
+        Container::create($data);
+    }
+
+    #[On('update')]
+    public function update($id, $data)
+    {
+        $container = Container::findOrFail($id);
+        $container->update($data);
+    }
+
+    #[On('delete-container')]
+    public function deleteContainer($id)
+    {
+        Container::destroy($id);
+    }
+
     #[On('favorite')]
     public function favorite($containerId)
     {
         $container = Container::findOrFail($containerId);
         $container->favorited = $container->favorited === 'S' ? '' : 'S';
         $container->save();
-    }
-
-    #[On('create')]
-    public function create($data)
-    {
-        Container::create($data);
     }
 
     #[On('set-favorites')]
@@ -34,6 +47,11 @@ class ContainerList extends Component
     public function setContainers($container)
     {
         $this->container = $container;
+    }
+
+    public function placeholder()
+    {
+        return view('components.container-list-placeholder');
     }
 
     public function render()

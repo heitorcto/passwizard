@@ -16,4 +16,6 @@
     </div>
 
     <livewire:form-modal />
+
+    <livewire:warning-modal />
 </div>

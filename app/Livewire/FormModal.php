@@ -80,4 +80,35 @@ class FormModal extends Component
         $this->dispatch('delete-container', id: $this->id);
         $this->resetAll();
     }
+
+    public function generatePassword()
+    {
+        $caractersNumber = 2;
+        $last = fake()->randomElements(['number', 'lowerLetter', 'upperLetter', 'special'])[0];
+        $password = '';
+
+        for ($index = 0; $index <= $caractersNumber; $index++) {
+            if ($last !== 'number') {
+                $password .= fake()->randomNumber(2);
+                $last = 'number';
+            }
+
+            if ($last !== 'lowerLetter') {
+                $password .= fake()->randomLetter();
+                $last = 'lowerLetter';
+            }
+
+            if ($last !== 'upperLetter') {
+                $password .= strtoupper(fake()->randomLetter());
+                $last = 'upperLetter';
+            }
+
+            if ($last !== 'special') {
+                $password .= fake()->randomElements(['!', '@', '#', '$', '%', '&', '*', '(', ')', '-', '_', '[', ']', '~', '^', '{', '}'])[0];
+                $last = 'special';
+            }
+        }
+
+        $this->password = $password;
+    }
 }

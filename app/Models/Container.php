@@ -22,6 +22,7 @@ class Container extends Model
         'email',
         'password',
         'observation',
-        'favorited'
+        'favorited',
+        'user_id'
     ];
 }

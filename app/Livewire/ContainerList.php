@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Container;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\On;
 use Livewire\Component;
 
@@ -13,12 +14,14 @@ class ContainerList extends Component
     #[On('create')]
     public function create($data)
     {
+        $data['user_id'] = Auth::user()->id;
         Container::create($data);
     }
 
     #[On('update')]
     public function update($id, $data)
     {
+        $data['user_id'] = Auth::user()->id;
         $container = Container::findOrFail($id);
         $container->update($data);
     }
@@ -26,7 +29,9 @@ class ContainerList extends Component
     #[On('delete-container')]
     public function deleteContainer($id)
     {
-        Container::destroy($id);
+        Container::where('user_id', Auth::user()->id)
+            ->where('id', $id)
+            ->delete();
     }
 
     #[On('favorite')]
@@ -56,10 +61,11 @@ class ContainerList extends Component
 
     public function render()
     {
-        $container = Container::orderBy('created_at', 'desc');
+        $container = Container::where('user_id', Auth::user()->id)
+            ->orderBy('created_at', 'desc');
 
         if ($this->container) {
-            $container->where('name', 'like', '%'.$this->container.'%');
+            $container->where('name', 'like', '%' . $this->container . '%');
         }
 
         if ($this->favorited) {

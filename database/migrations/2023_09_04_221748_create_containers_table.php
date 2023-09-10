@@ -19,6 +19,7 @@ return new class extends Migration
             $table->longText('password');
             $table->text('observation')->nullable();
             $table->string('favorited')->nullable();
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
             $table->softDeletes();
         });

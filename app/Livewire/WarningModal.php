@@ -10,6 +10,11 @@ use Livewire\Component;
 
 class WarningModal extends Component
 {
+    public function render()
+    {
+        return view('livewire.warning-modal');
+    }
+
     public function resendMail()
     {
         $user = User::findOrFail(Auth::user()->id);
@@ -17,10 +22,5 @@ class WarningModal extends Component
         $user->save();
 
         Mail::to($user->email)->send(new ConfirmAccount($user->name, $user->url_hash));
-    }
-
-    public function render()
-    {
-        return view('livewire.warning-modal');
     }
 }

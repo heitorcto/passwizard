@@ -11,7 +11,30 @@ class ContainerList extends Component
 {
     public $container;
 
-    public $favorited;
+    public $favorites;
+
+    public function placeholder()
+    {
+        return view('components.container-list-placeholder');
+    }
+
+    public function render()
+    {
+        $containers = Container::where('user_id', Auth::user()->id)
+            ->orderBy('created_at', 'desc');
+
+        if ($this->container) {
+            $containers->where('name', 'like', '%'.$this->container.'%');
+        }
+
+        if ($this->favorites) {
+            $containers->where('favorited', $this->favorites);
+        }
+
+        return view('livewire.container-list', [
+            'containers' => $containers->get(),
+        ]);
+    }
 
     #[On('create')]
     public function create($data)
@@ -29,7 +52,7 @@ class ContainerList extends Component
     }
 
     #[On('delete-container')]
-    public function deleteContainer($id)
+    public function delete($id)
     {
         Container::where('user_id', Auth::user()->id)
             ->where('id', $id)
@@ -45,37 +68,14 @@ class ContainerList extends Component
     }
 
     #[On('set-favorites')]
-    public function setFavorites($favorites)
+    public function setSeachFavorites($favorites)
     {
-        $this->favorited = $favorites ? 'S' : '';
+        $this->favorites = $favorites ? false : true;
     }
 
     #[On('set-containers')]
-    public function setContainers($container)
+    public function setSearchContainers($container)
     {
         $this->container = $container;
-    }
-
-    public function placeholder()
-    {
-        return view('components.container-list-placeholder');
-    }
-
-    public function render()
-    {
-        $container = Container::where('user_id', Auth::user()->id)
-            ->orderBy('created_at', 'desc');
-
-        if ($this->container) {
-            $container->where('name', 'like', '%'.$this->container.'%');
-        }
-
-        if ($this->favorited) {
-            $container->where('favorited', $this->favorited);
-        }
-
-        return view('livewire.container-list', [
-            'containers' => $container->get(),
-        ]);
     }
 }

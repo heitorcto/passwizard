@@ -38,7 +38,7 @@ class UserSignIn extends Component
 
     public function signIn()
     {
-        $validated = $this->validate();
+        $this->validate();
 
         if (Auth::attempt([
             'email' => $this->email,

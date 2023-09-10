@@ -19,7 +19,7 @@ class FormModal extends Component
     #[Rule('nullable|email:rfc,dns|max:255')]
     public $email;
 
-    #[Rule(['required', 'string', new Passwizard])]
+    #[Rule(['required', 'string', new Passwizard, 'max:255'])]
     public $password;
 
     #[Rule('nullable|string')]
@@ -57,11 +57,6 @@ class FormModal extends Component
         $this->id = $id;
     }
 
-    public function resetAll()
-    {
-        $this->reset('name', 'username', 'email', 'password', 'observation', 'modal', 'editar', 'edit', 'delete', 'id');
-    }
-
     public function create()
     {
         $data = $this->validate();
@@ -89,11 +84,10 @@ class FormModal extends Component
 
     public function generatePassword()
     {
-        $caractersNumber = 2;
         $last = fake()->randomElements(['number', 'lowerLetter', 'upperLetter', 'special'])[0];
         $password = '';
 
-        for ($index = 0; $index <= $caractersNumber; $index++) {
+        for ($index = 0; $index <= 2; $index++) {
             if ($last !== 'number') {
                 $password .= fake()->randomNumber(2);
                 $last = 'number';
@@ -116,5 +110,10 @@ class FormModal extends Component
         }
 
         $this->password = $password;
+    }
+
+    public function resetAll()
+    {
+        $this->reset('name', 'username', 'email', 'password', 'observation', 'modal', 'editar', 'edit', 'delete', 'id');
     }
 }

@@ -16,9 +16,9 @@ return new class extends Migration
             $table->string('name');
             $table->string('username')->nullable();
             $table->string('email')->nullable();
-            $table->longText('password');
+            $table->string('password');
             $table->text('observation')->nullable();
-            $table->string('favorited')->nullable();
+            $table->boolean('favorited')->nullable();
             $table->foreignId('user_id')->constrained();
             $table->timestamps();
             $table->softDeletes();

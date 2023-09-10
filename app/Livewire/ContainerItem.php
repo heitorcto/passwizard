@@ -11,13 +11,13 @@ class ContainerItem extends Component
     #[Reactive]
     public Container $container;
 
-    public function favorite()
-    {
-        $this->dispatch('favorite', containerId: $this->container->id);
-    }
-
     public function render()
     {
         return view('livewire.container-item');
+    }
+
+    public function favorite()
+    {
+        $this->dispatch('favorite', containerId: $this->container->id);
     }
 }

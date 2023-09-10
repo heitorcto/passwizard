@@ -19,13 +19,19 @@ class FormModal extends Component
     #[Rule('nullable|email:rfc,dns|max:255')]
     public $email;
 
-    #[Rule(["required", "string", new Passwizard])]
+    #[Rule(['required', 'string', new Passwizard])]
     public $password;
 
     #[Rule('nullable|string')]
     public $observation;
 
-    public $modal = '', $edit = false, $delete = false, $id = null;
+    public $modal = '';
+
+    public $edit = false;
+
+    public $delete = false;
+
+    public $id = null;
 
     public function render()
     {

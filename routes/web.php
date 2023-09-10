@@ -1,13 +1,13 @@
 <?php
 
-use App\Livewire\UserConfirmAccount;
 use App\Livewire\Dashboard;
+use App\Livewire\UserConfirmAccount;
 use App\Livewire\UserSignIn;
 use App\Livewire\UserSignOut;
-use Illuminate\Support\Facades\Route;
 use App\Livewire\UserSignup;
+use Illuminate\Support\Facades\Route;
 
-Route::get('/', function() {
+Route::get('/', function () {
     return view('home');
 });
 

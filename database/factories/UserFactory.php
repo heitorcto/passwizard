@@ -18,9 +18,9 @@ class UserFactory extends Factory
     {
         return [
             'name' => fake()->name(),
-            'email' => fake()->word() . fake()->randomNumber(5) . '@gmail.com',
+            'email' => fake()->word().fake()->randomNumber(5).'@gmail.com',
             'email_verified_at' => now(),
-            'password' => '12345678'
+            'password' => '12345678',
         ];
     }
 }

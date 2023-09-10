@@ -9,7 +9,9 @@ use Livewire\Component;
 
 class ContainerList extends Component
 {
-    public $container, $favorited;
+    public $container;
+
+    public $favorited;
 
     #[On('create')]
     public function create($data)
@@ -65,7 +67,7 @@ class ContainerList extends Component
             ->orderBy('created_at', 'desc');
 
         if ($this->container) {
-            $container->where('name', 'like', '%' . $this->container . '%');
+            $container->where('name', 'like', '%'.$this->container.'%');
         }
 
         if ($this->favorited) {
@@ -73,7 +75,7 @@ class ContainerList extends Component
         }
 
         return view('livewire.container-list', [
-            'containers' => $container->get()
+            'containers' => $container->get(),
         ]);
     }
 }

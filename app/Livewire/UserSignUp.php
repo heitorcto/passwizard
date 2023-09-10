@@ -5,12 +5,11 @@ namespace App\Livewire;
 use App\Mail\ConfirmAccount;
 use App\Models\User;
 use App\Rules\Passwizard;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Validation\Rules\Password;
+use Illuminate\Support\Facades\Mail;
 use Livewire\Attributes\Rule;
-use Livewire\Component;
 use Livewire\Attributes\Title;
+use Livewire\Component;
 
 #[Title('Registrar-se')]
 class UserSignUp extends Component

@@ -20,7 +20,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'url_hash'
+        'url_hash',
     ];
 
     /**

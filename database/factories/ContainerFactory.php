@@ -19,10 +19,10 @@ class ContainerFactory extends Factory
         return [
             'name' => fake()->name(),
             'username' => fake()->name(),
-            'email' => fake()->word() . fake()->randomNumber(5) . 'gmail.com',
+            'email' => fake()->word().fake()->randomNumber(5).'gmail.com',
             'password' => '12345678',
             'observation' => fake()->text(),
-            'user_id' => fake()->numberBetween(1, 20)
+            'user_id' => fake()->numberBetween(1, 20),
         ];
     }
 }

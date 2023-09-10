@@ -20,19 +20,19 @@ class Passwizard implements ValidationRule
             $message[] = ' 8 caracteres';
         }
 
-        if (!preg_match('/[a-z]/', $value)) {
+        if (! preg_match('/[a-z]/', $value)) {
             $message[] = ' um caracter minúsculo';
         }
 
-        if (!preg_match('/[A-Z]/', $value)) {
+        if (! preg_match('/[A-Z]/', $value)) {
             $message[] = ' um caracter maiúsculo';
         }
 
-        if (!preg_match('/[@$!%*#?&]/', $value)) {
+        if (! preg_match('/[@$!%*#?&]/', $value)) {
             $message[] = ' símbolos';
         }
 
-        if (!preg_match('/[0-9]/', $value)) {
+        if (! preg_match('/[0-9]/', $value)) {
             $message[] = ' numeros';
         }
 
@@ -43,13 +43,13 @@ class Passwizard implements ValidationRule
 
             foreach ($message as $index => $msg) {
                 if ($lastKey === $index) {
-                    $returnMessage .= $msg . '.';
+                    $returnMessage .= $msg.'.';
                 } else {
-                    $returnMessage .= $msg . ', ';
+                    $returnMessage .= $msg.', ';
                 }
             }
 
-            $fail('A senha precisa conter' . $returnMessage);
+            $fail('A senha precisa conter'.$returnMessage);
         }
     }
 }

@@ -6,7 +6,9 @@ use Livewire\Component;
 
 class ContainerSearch extends Component
 {
-    public $container, $favorites;
+    public $container;
+
+    public $favorites;
 
     public function setFavorites()
     {

@@ -42,7 +42,7 @@ class UserSignIn extends Component
 
         if (Auth::attempt([
             'email' => $this->email,
-            'password' => $this->password
+            'password' => $this->password,
         ])) {
             request()->session()->regenerate();
 

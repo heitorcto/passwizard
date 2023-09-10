@@ -17,7 +17,7 @@
                         <x-button click="deleteConfirmation" icon="fa-regular fa-trash-can"  class="btn-error w-14 text-xl" />
                         @else
                         <x-button click="deleteContainer" icon="fa-solid fa-check" class="btn-success w-14 text-xl" />
-                        <x-button click="deleteConfirmation" icon="fa-regular fa-trash-can"  class="btn-error w-14 text-xl" />
+                        <x-button click="deleteConfirmation" icon="fa-solid fa-xmark"  class="btn-error w-14 text-xl" />
                     @endif
                 @endif
             </div>

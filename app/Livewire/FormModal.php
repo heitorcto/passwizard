@@ -114,6 +114,6 @@ class FormModal extends Component
 
     public function resetAll()
     {
-        $this->reset('name', 'username', 'email', 'password', 'observation', 'modal', 'editar', 'edit', 'delete', 'id');
+        $this->reset('name', 'username', 'email', 'password', 'observation', 'modal', 'edit', 'delete', 'id');
     }
 }

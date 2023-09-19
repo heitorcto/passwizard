@@ -1,6 +1,6 @@
 <div class="container m-auto shadow-xl navbar bg-base-300 mt-5 rounded-md">
     <div class="flex-1">
-        <a class="btn btn-ghost normal-case text-xl">Passwizard</a>
+        <a href="{{ route('dashboard') }}" wire:navigate class="btn btn-ghost normal-case text-xl">Passwizard</a>
     </div>
     <div class="flex items-end gap-4">
         <div class="dropdown dropdown-end">
@@ -12,9 +12,8 @@
                 </div>
             </label>
             <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                <li><a class="justify-between">Profile</a></li>
-                <li><a>Settings</a></li>
-                <li><a href="/signout">Sair</a></li>
+                <li><a href="{{ route('user.profile.settings') }}" wire:navigate>Configurações</a></li>
+                <li><a href="{{ route('user.signout') }}" wire:navigate>Sair</a></li>
             </ul>
         </div>
     </div>

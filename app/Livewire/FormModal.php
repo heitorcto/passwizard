@@ -25,13 +25,13 @@ class FormModal extends Component
     #[Rule('nullable|string')]
     public $observation;
 
-    public $modal = '';
+    public $modal;
 
     public $edit = false;
 
     public $delete = false;
 
-    public $id = null;
+    public $id;
 
     public function render()
     {

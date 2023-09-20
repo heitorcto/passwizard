@@ -63,7 +63,7 @@ class ContainerList extends Component
     public function favorite($containerId)
     {
         $container = Container::findOrFail($containerId);
-        $container->favorited = $container->favorited === 'S' ? '' : 'S';
+        $container->favorited = $container->favorited ? false : true;
         $container->save();
     }
 

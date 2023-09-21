@@ -28,7 +28,7 @@ class Passwizard implements ValidationRule
             $message[] = ' um caracter maiúsculo';
         }
 
-        if (! preg_match('/[@$!%*#?&]/', $value)) {
+        if (! preg_match('/[@$!%*#?(){}~^&]/', $value)) {
             $message[] = ' símbolos';
         }
 

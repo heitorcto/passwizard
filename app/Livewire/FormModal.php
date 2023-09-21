@@ -104,7 +104,7 @@ class FormModal extends Component
             }
 
             if ($last !== 'special') {
-                $password .= fake()->randomElements(['!', '@', '#', '$', '%', '&', '*', '(', ')', '-', '_', '[', ']', '~', '^', '{', '}'])[0];
+                $password .= fake()->randomElements(['!', '@', '#', '$', '%', '&', '*', '(', ')', '~', '^', '{', '}'])[0];
                 $last = 'special';
             }
         }

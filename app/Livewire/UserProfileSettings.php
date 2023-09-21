@@ -8,7 +8,9 @@ use Livewire\Component;
 
 class UserProfileSettings extends Component
 {
-    public $name, $email;
+    public $name;
+
+    public $email;
 
     public function mount()
     {

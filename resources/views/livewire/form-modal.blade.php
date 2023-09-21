@@ -3,12 +3,12 @@
         <h3 class="font-bold text-lg">Crie um container</h3>
         <div class="form-control">
             <div class="grid grid-cols-2 gap-3">
-                <x-input label="Nome" type="text" wire="name" holder="New Zealand" />
-                <x-input label="Nome de usuário" type="text" wire="username" holder="John Wizzard" />
-                <x-input label="E-mail" type="email" wire="email" holder="john@wizzard.com" />
-                <x-input type="wizard" />
+                <x-input label="Nome" wire:model="name" placeholder="New Zealand" />
+                <x-input label="Nome de usuário" wire:model="username" placeholder="John Wizzard" />
+                <x-input label="E-mail" type="email" wire:model="email" placeholder="john@wizzard.com" />
+                <x-input.passwizard />
             </div>
-            <x-input label="Observações" type="textarea" wire="observation" holder="You shall not pass..." />
+            <x-input.textarea label="Observações" wire:model="observation" placeholder="You shall not pass..." />
         </div>
         <div class="flex mt-5">
             <div class="flex w-full justify-start gap-3">

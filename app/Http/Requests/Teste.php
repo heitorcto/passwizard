@@ -22,7 +22,7 @@ class Teste extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => 'string|min:3'
+            'email' => 'string|min:3',
         ];
     }
 }

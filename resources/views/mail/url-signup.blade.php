@@ -3,17 +3,17 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
     <title>Passwizard - Signup Mail</title>
 </head>
 
 <body style="font-family: 'Lato', sans-serif;">
     <div style="display: flex; justify-content: center;">
-        <img style="height: 10rem;" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="">
+        <img alt="" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" style="height: 10rem;">
     </div>
 
     <div style="display: flex; justify-content: center; margin-top: 5rem;">

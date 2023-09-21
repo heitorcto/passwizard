@@ -5,9 +5,9 @@
                 <h3 class="font-bold text-lg">Olá!</h3>
                 <p class="py-4">Você ainda não verificou seu e-mail, para prosseguir, cheque o e-mail que encaminhamos para sua caixa de entrada!</p>
                 <div class="modal-action">
-                    <button class="btn btn-info" wire:click="resendMail" wire:taget="resendMail" wire:loading.attr="disabled">
+                    <button class="btn btn-info" wire:click="resendMail" wire:loading.attr="disabled" wire:taget="resendMail">
                         Reenviar e-mail
-                        <span wire:loading class="loading loading-infinity loading-md"></span>
+                        <span class="loading loading-infinity loading-md" wire:loading></span>
                     </button>
                 </div>
             </div>

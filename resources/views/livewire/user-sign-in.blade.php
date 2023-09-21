@@ -18,9 +18,9 @@
                     </div>
                 @endif
 
-                <x-input label="E-mail" type="email" wire="email" holder="john@wizzard.com" />
+                <x-input label="E-mail" type="email" wire:model="email" placeholder="New Zealand" />
 
-                <x-input label="Senha" type="password" wire="password" holder="****" />
+                <x-input label="Senha" type="password" wire:model="password" placeholder="****" />
 
                 <div class="my-4 flex justify-center">
                     <button class="btn btn-primary w-full @if ($errors->any()) opacity-50 @endif" wire:loading.class="opacity-50" @if ($errors->any()) disabled @endif wire:loading.attr="disabled">

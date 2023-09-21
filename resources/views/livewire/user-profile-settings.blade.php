@@ -8,9 +8,9 @@
             <h2 class="card-title">Perfil</h2>
             <form wire:submit="saveChanges">
                 <div class="grid grid-cols-2 gap-3">
-                    <x-input label="Nome Completo" wire="name" holder="John Wizzard" />
+                    <x-input holder="John Wizzard" label="Nome Completo" wire="name" />
 
-                    <x-input label="E-mail" type="email" wire="email" holder="john@wizzard.com" />
+                    <x-input holder="john@wizzard.com" label="E-mail" type="email" wire="email" />
 
                     {{-- <div wire:dirty wire:ignore>Unsaved changes...</div> --}}
                 </div>

@@ -70,7 +70,7 @@ class ContainerList extends Component
     #[On('set-favorites')]
     public function setSeachFavorites($favorites)
     {
-        $this->favorites = $favorites ? false : true;
+        $this->favorites = $favorites;
     }
 
     #[On('set-containers')]
